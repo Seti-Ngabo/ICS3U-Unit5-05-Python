@@ -7,12 +7,12 @@
 
 
 def full_address(
-    full_name, street_number, street_name, city, province, postal, apt_number=None
+    full_name, street_number_int, street_name, city, province, postal, apt_number=None
 ):
     # return the full formal name
 
     full_address = full_name
-    full_address = full_address + "\n" + street_number + " " + street_name
+    full_address = full_address + "\n" + street_number_int + " " + street_name
     if apt_number != None:
         full_address = full_address + "\n" + apt_number
     full_address = full_address + "\n" + city + " " + province + " " + postal
