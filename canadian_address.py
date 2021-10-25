@@ -12,9 +12,12 @@ def full_address(
     # return the full formal name
 
     full_address = full_name
-    full_address = full_address + "\n" + street_number + " " + street_name
     if apt_number is not None:
-        full_address = full_address + "\n" + apt_number
+        full_address = (
+            full_address + "\n" + apt_number + "-" + street_number + " " + street_name
+        )
+    else:
+        full_address = full_address + "\n" + street_number + " " + street_name
     full_address = full_address + "\n" + city + " " + province + " " + postal
 
     return full_address
@@ -29,7 +32,7 @@ def main():
     street_name = input("Enter your street name: ")
     question = input("Do you live in an apartment? (y/n): ")
     if question.upper() == "Y" or question.upper() == "YES":
-        apt_number = input("Enter your apartment number (ex; Room 02): ")
+        apt_number = input("Enter your apartment number: ")
     city = input("Enter your city: ")
     province = input("Enter your province (ex; ON, BC..): ")
     postal = input("Enter your postal code (ex; K2A 123): ")
